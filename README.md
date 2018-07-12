@@ -73,6 +73,8 @@ Vue.use(Auth, {
 
 如果不传入参数，则只返回当前登录状态，不改变当前状态
 
+如果已有token，传入token可刷新当前已保存的token
+
 返回：登录状态，Boolean
 
 #### this.$auth.signOut()
