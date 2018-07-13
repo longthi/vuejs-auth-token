@@ -1,6 +1,6 @@
 {
   "name": "vuejs-auth-token",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Auth with Token for Vue",
   "keywords": [
     "vue",
@@ -11,6 +11,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "homepage": "https://github.com/longthi/vuejs-auth-token.git",
   "author": "longthi",
   "license": "ISC"
 }

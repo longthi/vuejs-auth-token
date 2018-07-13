@@ -28,7 +28,8 @@ Vue.use(Auth);
 Vue.use(Auth, {
   webStore : 'session',
   authName : 'signIn',
-  tokenName : 'token'
+  tokenName : 'token',
+  localAge : 259200
 });
 ~~~
 
