@@ -1,6 +1,6 @@
 {
   "name": "vuejs-auth-token",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Auth with Token for Vue",
   "keywords": [
     "vue",

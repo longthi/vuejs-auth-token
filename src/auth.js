@@ -7,22 +7,34 @@ class Auth {
     webStore = 'session',
     authName = 'signIn',
     tokenName = 'token',
+    localAge = 259200,
   }) {
-    storage.webStore = webStore;
+    this.webStore = webStore;
     this.authName = authName;
     this.tokenName = tokenName;
-    this.data = {
-      signIn: false,
-      token: '',
-    }
+    this.data = {};
+    this.localAge = localAge;
+
+    storage.webStore = this.webStore;
   }
 
   login(token = '') {
     if (token !== '') {
-      this.data = {
-        [this.authName]: true,
-        [this.tokenName]: token,
+      let t = new Data();
+      if (this.webStore === 'local') {
+        this.data = {
+          [this.authName]: true,
+          [this.tokenName]: token,
+          'localAge': this.localAge,
+          'cTime': t.getTime(),
+        }
+      } else {
+        this.data = {
+          [this.authName]: true,
+          [this.tokenName]: token,
+        }
       }
+
       storage.save(this.data);
     }
     return this._checkLogin();
