@@ -63,17 +63,31 @@ Vue.use(Auth, {
 
 默认值：token
 
+#### localAge
+
+说明：token过期时间，存储在localStorage中时，该过期时间有效
+
+过期后，缓存会自动清除
+
+单位：秒（s）
+
+默认值：259200（3天）
+
+配置`webStore=‘local’`时，该值为 `-1` (永不过期)
+
 ## 方法
 
 该插件添加了` this.$auth `实例方法
 
-#### this.$auth.login(token)
+#### this.$auth.login(token, webStore)
 
 登录，必须传入token
 
 如果不传入参数，则只返回当前登录状态，不改变当前状态
 
 如果已有token，传入token可刷新当前已保存的token
+
+无论配置了哪种存储器，这里都可通过设置webStore指定存储器
 
 返回：登录状态，Boolean
 
@@ -87,11 +101,11 @@ token过期时，用此方法进行清除后重新登录
 
 返回：登录状态，Boolean
 
-### this.$auth.check()
+#### this.$auth.check()
 
 返回登录状态，Boolean
 
-### this.$auth.token()
+#### this.$auth.token()
 
 返回当前保存的token，String
 
