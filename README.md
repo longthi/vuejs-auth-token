@@ -112,6 +112,33 @@ token过期时，用此方法进行清除后重新登录
 
 ## 使用
 
+### 配合vue-router进行自动跳转
+
+插件注册了全局方法Vue.auth
+
+在router.beforeEach中使用全局方法Vue.auth.check()进行状态判断
+
+```
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.auth)) {
+    if (!Vue.auth.check()) {
+      next({
+        path: '/login',
+        query: {
+          redirect: to.fullPath
+        }
+      })
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+})
+```
+
+> 仍推荐在子组件中使用实例方法this.$auth
+
 ### 登录
 
 1. 通过axios进行登录请求，并获取token

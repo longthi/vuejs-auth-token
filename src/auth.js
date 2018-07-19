@@ -4,7 +4,7 @@ import {
 
 const TIME_OBJ = new Date();
 
-class Auth {
+export default class Auth {
   constructor({
     webStore = 'session',
     authName = 'signIn',
@@ -82,4 +82,6 @@ class Auth {
 
 }
 
-export default Auth;
+if (window.Vue) {
+  window.Vue.use(Auth);
+}
